@@ -38,7 +38,7 @@ void showStatus(unsigned char fleet) {
 	if (fleet & CMD_CRANE_FORM)	printf("학익진 진형 유지\n");
 	if (fleet & CMD_EVAC)		printf("부상병 후송\n");
 	if (fleet & CMD_DAMAGE)		printf("함선 피해 발생!\n");
-	if (fleet & CMD_REPAIR)		printf("함선 수리중!\n");
+	if (fleet & CMD_REPAIR)		printf("함선 수리중!\n");//추가
 	if (fleet == 0)				printf("모든 함선 대기 상태\n");
 }
 
@@ -51,7 +51,7 @@ void printMenu(void) {
 	printf("5. Toggle 학익진 유지\n");
 	printf("6. Toggle 부상병 후송\n");
 	printf("7. Toggle 피해 경고\n");
-	printf("8. Toggle 함선 수리\n");
+	printf("8. Toggle 함선 수리\n");//추가
 	printf("9. Reset ALL (초기화)\n");
 	printf("10. Inspection (총무공 점검)\n");
 	printf("11. Full Attack Mode (전면 돌격)\n");
@@ -140,7 +140,7 @@ int main(void) {
 				hp = hp - 10;
 			}
 			break;
-		case 8:
+		case 8://추가
 			if (fleet & CMD_REPAIR) {
 				fleet = CommandOff(fleet, 7);
 				printf("함선 수리 완료!\n");
